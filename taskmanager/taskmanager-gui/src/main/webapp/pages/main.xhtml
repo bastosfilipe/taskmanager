@@ -51,6 +51,8 @@
 
 <f:view contentType="text/html">
 	<h:body>
+	
+		<ui:include src="modal-new-task.xhtml"/>
 
 		<div class="container container-table">
 			<div class="row">
@@ -74,9 +76,11 @@
 								<h4>Tarefas Disponíveis</h4>
 							</div>
 							
-							<div style="float: right">
-								<button type="button" class="btn btn-primary">Nova tarefa</button>
-							</div>
+							<h:form>
+								<div style="float: right">
+								 	<button type="button" data-toggle="modal" data-target="#modal-new" class="btn btn-primary">Nova tarefa</button>
+								</div>
+							</h:form>
 						</div>
 						
 						<div class="col-md-12">

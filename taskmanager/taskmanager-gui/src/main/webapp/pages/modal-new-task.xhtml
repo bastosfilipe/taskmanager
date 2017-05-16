@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+	<div id="modal-new" class="modal fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				
+				<h:form id="form-modal">
+					
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						<h4 class="modal-title">Nova Tarefa</h4>
+					</div>
+					
+					<div class="modal-body">
+						<div class="form-group">
+							<h:outputLabel styleClass="control-label" value="Descrição"/>
+							<h:inputTextarea styleClass="form-control" cols="20" rows="10" value="#{panelView.description}"/>
+						</div>
+					</div>
+						
+					<div class="modal-footer">					
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						<h:commandButton styleClass="btn btn-primary" value="Criar nova" actionListener="#{panelView.create}" />
+					</div>
+				</h:form>
+				
+			</div>
+		</div>
+	</div>
+</f:view>

@@ -28,6 +28,8 @@ public class PanelView implements Serializable {
 	
 	private Task task;
 	
+	private String description;
+	
 	public PanelView() {
 		reset();
 	}
@@ -85,8 +87,22 @@ public class PanelView implements Serializable {
 		taskSave();
 	}
 
+	public void create() {
+		try {
+			
+			Task newTask = new Task();
+			newTask.setDescription(description);
+			service.insert(newTask);
+			reset();
+			
+		} catch (TaskManagerException e) {
+			e.printStackTrace();
+		}
+	}
+	
 	private void reset() {
 		this.task = new Task();
+		this.description = "";
 	}
 
 	// TODO Remover após teste
@@ -113,5 +129,12 @@ public class PanelView implements Serializable {
 	public void setTask(Task task) {
 		this.task = task;
 	}
-
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
 }
