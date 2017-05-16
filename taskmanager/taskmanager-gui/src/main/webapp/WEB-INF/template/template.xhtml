@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xml:lang="pt-br"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+    xmlns:f="http://xmlns.jcp.org/jsf/core"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+    xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui" >
+
+<h:head>
+
+	<f:facet name="first">
+	    <meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+	    <meta name="description" content="Projeto de Controle de OS da Mais Garantido"/>
+	    <meta name="author" content="Filipe Bastos"/>
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+	</f:facet>
+
+    <title>SCEGF - Sistema de controle EGF</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <h:outputStylesheet library="css" name="vendor/bootstrap.min.css"/>
+
+    <!-- Bootstrap social -->
+	<h:outputStylesheet library="css" name="vendor/bootstrap-social.css"/>
+	
+    <!-- MetisMenu CSS -->
+    <h:outputStylesheet library="css" name="vendor/metisMenu.min.css"/>
+
+    <!-- Custom CSS -->
+    <h:outputStylesheet library="css" name="vendor/sb-admin-2.css"/>
+
+    <!-- Morris Charts CSS -->
+    <h:outputStylesheet library="css" name="vendor/morris.css"/>
+
+    <!-- Custom Fonts -->
+    <h:outputStylesheet library="css" name="vendor/font-awesome.min.css" />		
+    
+    <!-- Datepicker -->
+	<h:outputStylesheet library="css" name="vendor/bootstrap-datetimepicker.min.css" />
+    		
+    <!-- Custom styles -->
+	<h:outputStylesheet library="css" name="oscontrol-impl.css" />	
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<ui:insert name="head"/>
+</h:head>
+
+<f:view contentType="text/html">
+	<h:body>
+	
+	    <div id="wrapper">
+	
+	        <!-- Navigation -->
+	        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+	            
+				<!-- Project name -->
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand" href="#">Sistema de controle EGF</a>
+	                <p class="versao">vs 1.0</p>
+	            </div>
+	            
+				<!-- Info Side Menu-->
+				<ui:decorate template="/WEB-INF/template/menu-info.xhtml" />
+				
+				<!-- Left Side Menu-->
+	            <div class="navbar-default sidebar" role="navigation">
+					<ui:decorate template="/WEB-INF/template/menu-left-side.xhtml" />
+				</div>	            
+	        </nav>
+	
+	        <div id="page-wrapper">	            
+	            <ui:insert name="content" />
+			    <button id="btn-my-acount" type="button" data-toggle="modal" data-target="#modal-cadastro-user" style="display: none"/>
+				<ui:include src="/pages/cadastros/usuario/modal-cadastro-usuario.xhtml"/>
+	        </div>
+	        
+			<footer class="footer text-center">
+				<div class="container ">
+					<p class="text-muted" style="font-size: 10px">Desenvolvido por <a href="http://www.filipebastos.com" target="_blank">Filipe Bastos</a></p>
+				</div>
+			</footer>
+		
+	    </div>
+				
+	    <!-- Bootstrap Core JavaScript -->
+	    <h:outputScript library="js" name="vendor/bootstrap.min.js"/>
+	    	    
+	    <!-- Metis Menu Plugin JavaScript -->
+	    <h:outputScript library="js" name="vendor/metisMenu.min.js"/>
+	    
+	    <!-- Custom Theme JavaScript -->
+	    <h:outputScript library="js" name="vendor/sb-admin-2.js"/>
+	    	    	    
+		<ui:insert name="scripts" />
+		
+	</h:body>
+</f:view>
+
+</html>
