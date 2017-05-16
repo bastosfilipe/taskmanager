@@ -2,3 +2,18 @@
 .field-space {
 	margin-bottom: 15px;
 }
+
+.user-logged {
+	color: #fff; 
+	font-weight: bold;
+}
+
+.user-logged-img {
+	width: 55px;
+	padding: 5px;
+}
+
+.panel-top {
+	height: 60px;
+	background-color: #2A9FD8;
+}

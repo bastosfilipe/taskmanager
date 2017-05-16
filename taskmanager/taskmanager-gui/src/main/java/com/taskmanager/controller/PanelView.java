@@ -10,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.taskmanager.domain.Task;
+import com.taskmanager.domain.User;
 import com.taskmanager.exception.TaskManagerException;
 import com.taskmanager.service.ITaskService;
 import com.taskmanager.service.impl.TaskService;
@@ -22,6 +23,8 @@ public class PanelView implements Serializable {
 	private static final long serialVersionUID = -5182320650506184972L;
 
 	private ITaskService service = new TaskService();
+
+	private Session session = Session.getInstance();
 	
 	private Task task;
 	
@@ -59,7 +62,29 @@ public class PanelView implements Serializable {
 			e.printStackTrace();
 		}
 	}
+
+	public boolean assignedToLogged() {
+		return session.getUserLogged().equals(this.task.getOwner());
+	}
 	
+	public boolean withoutAttribution() {
+		return this.task.getOwner() == null;
+	}
+	
+	public boolean assignedToAnother() {
+		return !withoutAttribution() && !assignedToLogged();
+	}
+	
+	public void leaveTask() {		
+		this.task.setOwner(null);
+		taskSave();
+	}
+	
+	public void getTaskWithoutAttribution() {		
+		this.task.setOwner(session.getUserLogged());
+		taskSave();
+	}
+
 	private void reset() {
 		this.task = new Task();
 	}
@@ -69,14 +94,14 @@ public class PanelView implements Serializable {
 
 		if (service.listAll().isEmpty()) {
 
-			for (int i = 0; i < 5; i++) {
-				Task task = new Task(Session.getInstance().getUserLogged(), "Ajustar processo de deploy na nuvem");
-
-				try {
-					new TaskService().insert(task);
-				} catch (TaskManagerException e) {
-					e.printStackTrace();
-				}
+			try {
+				
+				new TaskService().insert(new Task(Session.getInstance().getUserLogged(), "Ajustar processo de deploy na nuvem"));
+				new TaskService().insert(new Task(null, "XXXXXXXXXX XXXXXXXXXXX asndja skdjh kasjdh kasjh dkjh as"));
+				new TaskService().insert(new Task(new User("Hugo", "hugo", "000"), "WWW aksd kasj djagsh dgajsgjas"));
+				
+			} catch (TaskManagerException e) {
+				e.printStackTrace();
 			}
 		}
 	}
