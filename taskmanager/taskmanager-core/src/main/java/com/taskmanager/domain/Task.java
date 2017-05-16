@@ -13,6 +13,8 @@ public class Task {
 	private String solution;
 
 	private Date created;
+	
+	private boolean open;
 
 	public Task() {
 
@@ -66,6 +68,14 @@ public class Task {
 
 	public void setCreated(Date created) {
 		this.created = created;
+	}
+	
+	public boolean isOpen() {
+		return open;
+	}
+
+	public void setOpen(boolean open) {
+		this.open = open;
 	}
 
 	@Override

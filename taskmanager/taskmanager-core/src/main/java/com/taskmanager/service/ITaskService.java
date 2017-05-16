@@ -15,4 +15,6 @@ public interface ITaskService {
 
 	public Collection<Task> listAll();
 
+	public Collection<Task> listBySituation(boolean open);
+
 }

@@ -19,7 +19,7 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 	</f:facet>
 
-    <title>SCEGF - Sistema de controle EGF</title>
+    <title>Task Manager</title>
     
     <!-- Bootstrap Core CSS -->
     <h:outputStylesheet library="css" name="vendor/bootstrap.min.css"/>
@@ -43,7 +43,7 @@
 	<h:outputStylesheet library="css" name="vendor/bootstrap-datetimepicker.min.css" />
     		
     <!-- Custom styles -->
-	<h:outputStylesheet library="css" name="oscontrol-impl.css" />	
+	<h:outputStylesheet library="css" name="style.css" />	
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -59,35 +59,9 @@
 	<h:body>
 	
 	    <div id="wrapper">
-	
-	        <!-- Navigation -->
-	        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-	            
-				<!-- Project name -->
-	            <div class="navbar-header">
-	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-	                    <span class="sr-only">Toggle navigation</span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                    <span class="icon-bar"></span>
-	                </button>
-	                <a class="navbar-brand" href="#">Sistema de controle EGF</a>
-	                <p class="versao">vs 1.0</p>
-	            </div>
-	            
-				<!-- Info Side Menu-->
-				<ui:decorate template="/WEB-INF/template/menu-info.xhtml" />
-				
-				<!-- Left Side Menu-->
-	            <div class="navbar-default sidebar" role="navigation">
-					<ui:decorate template="/WEB-INF/template/menu-left-side.xhtml" />
-				</div>	            
-	        </nav>
-	
+	    	
 	        <div id="page-wrapper">	            
 	            <ui:insert name="content" />
-			    <button id="btn-my-acount" type="button" data-toggle="modal" data-target="#modal-cadastro-user" style="display: none"/>
-				<ui:include src="/pages/cadastros/usuario/modal-cadastro-usuario.xhtml"/>
 	        </div>
 	        
 			<footer class="footer text-center">

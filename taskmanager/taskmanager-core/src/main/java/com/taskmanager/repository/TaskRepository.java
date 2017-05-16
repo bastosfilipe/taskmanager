@@ -37,4 +37,18 @@ public class TaskRepository {
 		return list;
 	}
 
+	public Collection<Task> listBySituation(boolean open) {
+		
+		List<Task> newList = new ArrayList<>();
+		
+		for (Task task : list) {
+			
+			if (task.isOpen() == open) {
+				newList.add(task);
+			}
+		}
+		
+		return newList;
+	}
+
 }

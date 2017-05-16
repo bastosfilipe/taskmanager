@@ -22,14 +22,46 @@ public class PanelView implements Serializable {
 	private static final long serialVersionUID = -5182320650506184972L;
 
 	private ITaskService service = new TaskService();
+	
+	private Task task;
+	
+	public PanelView() {
+		reset();
+	}
 
 	public Collection<Task> listAll() {
 
 		teste();
 
-		List<Task> lista = new ArrayList<>(service.listAll());
+		List<Task> lista = new ArrayList<>(service.listBySituation(true));
 		Collections.reverse(lista);
 		return lista;
+	}
+	
+	public void taskSelect(Task task) {
+		this.task = task;		
+	}
+
+	public void taskClose() {
+		this.task.setOpen(false);
+		taskSave();
+	}
+	
+	public void taskSave() {
+		
+		try {
+			
+			service.update(this.task);
+			reset();
+			listAll();
+			
+		} catch (TaskManagerException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	private void reset() {
+		this.task = new Task();
 	}
 
 	// TODO Remover após teste
@@ -47,6 +79,14 @@ public class PanelView implements Serializable {
 				}
 			}
 		}
+	}
+	
+	public Task getTask() {
+		return task;
+	}
+	
+	public void setTask(Task task) {
+		this.task = task;
 	}
 
 }

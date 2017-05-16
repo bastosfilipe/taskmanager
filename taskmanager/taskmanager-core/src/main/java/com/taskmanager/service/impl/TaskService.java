@@ -18,6 +18,7 @@ public class TaskService implements ITaskService {
 	public void insert(Task task) throws TaskManagerException {
 
 		task.setId(TaskIdGenerator.getInstance().getNextId());
+		task.setOpen(true);
 		task.setCreated(new Date());
 		repository.add(task);
 	}
@@ -43,6 +44,11 @@ public class TaskService implements ITaskService {
 	@Override
 	public Collection<Task> listAll() {
 		return repository.listAll();
+	}
+
+	@Override
+	public Collection<Task> listBySituation(boolean open) {
+		return repository.listBySituation(open);
 	}
 
 }
