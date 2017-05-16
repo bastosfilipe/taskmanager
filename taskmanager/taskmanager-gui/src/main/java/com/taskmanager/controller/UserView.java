@@ -1,14 +1,17 @@
 package com.taskmanager.controller;
 
+import java.io.IOException;
 import java.io.Serializable;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import com.taskmanager.domain.User;
 import com.taskmanager.exception.TaskManagerException;
 import com.taskmanager.service.IUserService;
 import com.taskmanager.service.impl.UserService;
-
+import com.taskmanager.session.Session;
+import com.taskmanager.util.WebUtils;
 
 @ManagedBean
 @ViewScoped
@@ -21,21 +24,23 @@ public class UserView implements Serializable {
 	private String password;
 
 	private IUserService service = new UserService();
-		
+
+	private Session session = Session.getInstance();
+
 	public void login() {
-		
-		System.out.println(username);
-		System.out.println(password);
-		
-		
+
 		try {
-			
-			service.authentication(username, password);
-			
+
+			User logged = service.authentication(username, password);
+			session.addUserLogged(logged);
+			WebUtils.redirect("pages/main.jsf");
+
 		} catch (TaskManagerException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-	}	
+	}
 
 	public String getUsername() {
 		return username;
@@ -53,4 +58,7 @@ public class UserView implements Serializable {
 		this.password = password;
 	}
 
+	public Session getSession() {
+		return session;
+	}
 }

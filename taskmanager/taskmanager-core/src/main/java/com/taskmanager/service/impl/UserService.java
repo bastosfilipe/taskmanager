@@ -29,7 +29,7 @@ public class UserService implements IUserService {
 			}
 		}
 
-		throw new TaskManagerException("Nome de usuário e/ou senha são inválidos!");
+		throw new TaskManagerException("Falha na autenticação!");
 	}
 
 	@Override

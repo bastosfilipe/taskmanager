@@ -15,7 +15,8 @@ public class TaskIdGenerator {
 	}
 
 	protected int getNextId() {
-		return next++;
+		next++;
+		return next;
 	}
 
 }
