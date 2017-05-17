@@ -20,11 +20,9 @@ Todos os dados são registrados em memória.
 Para executar o projeto, basta clonar o repositório do git e importar o projeto dentro do Eclipse. Será necessário gerar um war do módulo GUI caso há necessidade de testar o projeto em um servidor externo ao ambiente de desenvolvimento.
 
 Dois usuários três tarefas serão criados quando a aplicação for executada no servidor para testes.
-Credencias são:
-Usuário: admin  
-Senha:   admin
 
-Usuário: hugo  
-Senha:   000
+Credencias são: Usuário: admin Senha: admin / Usuário: hugo Senha: 000
+
+Implementações não realizadas pois estão fora do escopo solicitado: Cadastro de usuário e logout
 
 Obs.: Banco de dados está em memória.
