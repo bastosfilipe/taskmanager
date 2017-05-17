@@ -13,3 +13,8 @@ function validation() {
 		btn.click();				
 	}
 }
+
+function reset() {
+	document.getElementsByClassName("desc-js")[0].value = "";
+	document.getElementsByClassName("desc-msg-error-js")[0].textContent = "";
+}

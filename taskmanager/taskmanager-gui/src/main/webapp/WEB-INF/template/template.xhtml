@@ -20,28 +20,7 @@
 	</f:facet>
 
     <title>Task Manager</title>
-    
-    <!-- Bootstrap Core CSS -->
-    <h:outputStylesheet library="css" name="vendor/bootstrap.min.css"/>
-
-    <!-- Bootstrap social -->
-	<h:outputStylesheet library="css" name="vendor/bootstrap-social.css"/>
-	
-    <!-- MetisMenu CSS -->
-    <h:outputStylesheet library="css" name="vendor/metisMenu.min.css"/>
-
-    <!-- Custom CSS -->
-    <h:outputStylesheet library="css" name="vendor/sb-admin-2.css"/>
-
-    <!-- Morris Charts CSS -->
-    <h:outputStylesheet library="css" name="vendor/morris.css"/>
-
-    <!-- Custom Fonts -->
-    <h:outputStylesheet library="css" name="vendor/font-awesome.min.css" />		
-    
-    <!-- Datepicker -->
-	<h:outputStylesheet library="css" name="vendor/bootstrap-datetimepicker.min.css" />
-    		
+        		
     <!-- Custom styles -->
 	<h:outputStylesheet library="css" name="style.css" />	
 
@@ -60,26 +39,9 @@
 	
 	    <div id="wrapper">
 	    	
-	        <div id="page-wrapper">	            
-	            <ui:insert name="content" />
-	        </div>
-	        
-			<footer class="footer text-center">
-				<div class="container ">
-					<p class="text-muted" style="font-size: 10px">Desenvolvido por <a href="http://www.filipebastos.com" target="_blank">Filipe Bastos</a></p>
-				</div>
-			</footer>
+           <ui:insert name="content" />
 		
 	    </div>
-				
-	    <!-- Bootstrap Core JavaScript -->
-	    <h:outputScript library="js" name="vendor/bootstrap.min.js"/>
-	    	    
-	    <!-- Metis Menu Plugin JavaScript -->
-	    <h:outputScript library="js" name="vendor/metisMenu.min.js"/>
-	    
-	    <!-- Custom Theme JavaScript -->
-	    <h:outputScript library="js" name="vendor/sb-admin-2.js"/>
 	    	    	    
 		<ui:insert name="scripts" />
 		

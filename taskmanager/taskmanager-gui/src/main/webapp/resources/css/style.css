@@ -1,3 +1,19 @@
+html, body, .container-table {
+    height: 100%;
+}
+
+.container-table {
+    display: table;
+}
+
+.container-table, .login-panel {
+    margin-top: 0px;
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
 
 .field-space {
 	margin-bottom: 15px;
