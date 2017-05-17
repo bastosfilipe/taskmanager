@@ -23,7 +23,8 @@
 						
 					<div class="modal-footer">					
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<h:commandButton styleClass="btn btn-primary" value="Criar nova" actionListener="#{panelView.create}" />
+						<h:commandButton id="btnCreate" styleClass="btn btn-primary" value="Criar nova" actionListener="#{panelView.create}" />
+                        <h:message for="btnCreate" class="text-right text-danger" />
 					</div>
 				</h:form>
 				

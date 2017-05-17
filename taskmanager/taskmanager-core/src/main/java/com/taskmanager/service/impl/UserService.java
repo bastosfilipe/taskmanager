@@ -28,7 +28,7 @@ public class UserService implements IUserService {
 				return user;
 			}
 		}
-
+		
 		throw new TaskManagerException("Falha na autenticação!");
 	}
 

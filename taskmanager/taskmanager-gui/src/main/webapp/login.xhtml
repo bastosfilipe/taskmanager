@@ -73,10 +73,12 @@
                                 </div>
 
                                 <h:commandButton 
-                                	id="link-entrar" 
+                                	id="btnLogar" 
                                 	styleClass="btn btn-lg btn-primary btn-block" 
                                 	value="Entrar" 
                                 	actionListener="#{userView.login}" />
+                                	
+                               	<h:message for="btnLogar" class="text-right text-danger" />
                             </fieldset>
                         </h:form>
                         

@@ -3,8 +3,10 @@ package com.taskmanager.controller;
 import java.io.IOException;
 import java.io.Serializable;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import com.taskmanager.domain.User;
 import com.taskmanager.exception.TaskManagerException;
@@ -36,9 +38,9 @@ public class UserView implements Serializable {
 			WebUtils.redirect("pages/main.jsf");
 
 		} catch (TaskManagerException e) {
-			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage("login-form:btnLogar", new FacesMessage(e.getMessage()));
 		} catch (IOException e) {
-			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage("login-form:btnLogar", new FacesMessage("Erro ao redirecionar a página."));
 		}
 	}
 

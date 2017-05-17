@@ -6,8 +6,10 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 import com.taskmanager.domain.Task;
 import com.taskmanager.domain.User;
@@ -46,11 +48,26 @@ public class PanelView implements Serializable {
 	}
 
 	public void taskClose() {
-		this.task.setOpen(false);
-		taskSave();
+
+		if (task.getSolution().isEmpty()) {
+			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnClose", new FacesMessage("Informe a solução para o problema"));
+		} else {
+			this.task.setOpen(false);
+			save();
+		}
+	}
+	
+	public void taskSave() {		
+
+		if (task.getSolution().isEmpty()) {
+			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnSave", new FacesMessage("Informe a solução para o problema"));
+		} else {
+			this.task.setOpen(false);
+			taskSave();
+		}
 	}
 
-	public void taskSave() {
+	private void save() {
 
 		try {
 
@@ -77,12 +94,12 @@ public class PanelView implements Serializable {
 
 	public void leaveTask() {
 		this.task.setOwner(null);
-		taskSave();
+		save();
 	}
 
 	public void getTaskWithoutAttribution() {
 		this.task.setOwner(session.getUserLogged());
-		taskSave();
+		save();
 	}
 
 	public void create() {
@@ -94,7 +111,7 @@ public class PanelView implements Serializable {
 			reset();
 
 		} catch (TaskManagerException e) {
-			e.printStackTrace();
+			FacesContext.getCurrentInstance().addMessage("modal-new:btnCreate", new FacesMessage(e.getMessage()));
 		}
 	}
 	

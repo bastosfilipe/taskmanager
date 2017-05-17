@@ -16,16 +16,15 @@ public class TaskService implements ITaskService {
 
 	@Override
 	public void insert(Task task) throws TaskManagerException {
-
 		task.setId(TaskIdGenerator.getInstance().getNextId());
 		task.setOpen(true);
 		task.setCreated(new Date());
-		repository.add(task);
+		repository.add(task);	
 	}
 
 	@Override
 	public void update(Task task) throws TaskManagerException {
-
+		
 		Task taskBase = getById(task.getId());
 		List<Task> tasks = new ArrayList<>(repository.listAll());
 		tasks.set(tasks.indexOf(taskBase), task);
