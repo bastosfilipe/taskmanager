@@ -12,7 +12,6 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import com.taskmanager.domain.Task;
-import com.taskmanager.domain.User;
 import com.taskmanager.exception.TaskManagerException;
 import com.taskmanager.service.ITaskService;
 import com.taskmanager.service.impl.TaskService;
@@ -37,7 +36,6 @@ public class PanelView implements Serializable {
 	}
 
 	public Collection<Task> listAll() {
-		init();
 		List<Task> lista = new ArrayList<>(service.listBySituation(true));
 		Collections.reverse(lista);
 		return lista;
@@ -56,8 +54,8 @@ public class PanelView implements Serializable {
 			save();
 		}
 	}
-	
-	public void taskSave() {		
+
+	public void taskSave() {
 
 		if (task.getSolution().isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnSave", new FacesMessage("Informe a solução para o problema"));
@@ -114,7 +112,7 @@ public class PanelView implements Serializable {
 			FacesContext.getCurrentInstance().addMessage("modal-new:btnCreate", new FacesMessage(e.getMessage()));
 		}
 	}
-	
+
 	public void closeWindowTaskDetail() {
 		reset();
 	}
@@ -122,21 +120,6 @@ public class PanelView implements Serializable {
 	private void reset() {
 		this.task = new Task();
 		this.description = "";
-	}
-
-	private void init() {
-
-		if (service.listAll().isEmpty()) {
-			try {
-
-				new TaskService().insert(new Task(Session.getInstance().getUserLogged(), "Ajustar processo de deploy na nuvem"));
-				new TaskService().insert(new Task(null, "Revisar infraestrutura da sala 4"));
-				new TaskService().insert(new Task(new User("Hugo", "hugo", "000"), "Cria testes de aceitação para App X"));
-
-			} catch (TaskManagerException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 	public Task getTask() {

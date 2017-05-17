@@ -17,15 +17,17 @@
 					<div class="modal-body">
 						<div class="form-group">
 							<h:outputLabel styleClass="control-label" value="Descrição"/>
-							<h:inputTextarea styleClass="form-control" cols="20" rows="10" value="#{panelView.description}"/>
+							<h:inputTextarea styleClass="form-control desc-js" cols="20" rows="10" value="#{panelView.description}" />
+							<h:outputLabel styleClass="text-right text-danger desc-msg-error-js" />
 						</div>
 					</div>
-						
-					<div class="modal-footer">					
+												
+					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						<h:commandButton id="btnCreate" styleClass="btn btn-primary" value="Criar nova" actionListener="#{panelView.create}" />
-                        <h:message for="btnCreate" class="text-right text-danger" />
+						<button type="button" class="btn btn-primary" onclick="validation()">Criar nova</button>
+						<h:commandButton style="display: none" actionListener="#{panelView.create}" styleClass="btn-create-js" />
 					</div>
+					
 				</h:form>
 				
 			</div>
