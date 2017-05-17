@@ -44,7 +44,7 @@ public class TaskServiceTest {
 		service.insert(task);
 		Assert.assertTrue(service.listAll().size() == 1);
 
-		Task t1 = service.getById(1);
+		Task t1 = service.getById(task.getId());
 		t1.setSolution("Implementação dos métodos necessário");
 		service.update(t1);
 		Assert.assertTrue(service.listAll().size() == 1);

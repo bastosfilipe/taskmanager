@@ -1,3 +1,4 @@
+
 function validation() {
 	
 	//Testar se a descrição está vazia
@@ -14,7 +15,8 @@ function validation() {
 	}
 }
 
-function reset() {
+function openModal() {
 	document.getElementsByClassName("desc-js")[0].value = "";
 	document.getElementsByClassName("desc-msg-error-js")[0].textContent = "";
+	document.getElementsByClassName("btn-modal-new-js")[0].click();
 }

@@ -43,7 +43,7 @@
 	<ui:insert name="head" />
 	
 	<h:outputScript library="js" name="taskmanager.js" />
-	
+		
 </h:head>
 
 <f:view contentType="text/html">
@@ -75,7 +75,8 @@
 							
 							<h:form>
 								<div style="float: right">
-								 	<button type="button" data-toggle="modal" data-target="#modal-new" class="btn btn-primary">Nova tarefa</button>
+								 	<button type="button" class="btn btn-primary" onclick="openModal()">Nova tarefa</button>
+								 	<button type="button" data-toggle="modal" data-target="#modal-new" style="display: none" class="btn-modal-new-js" />
 								</div>
 							</h:form>
 						</div>
@@ -231,9 +232,6 @@
 		<!-- Bootstrap Core JavaScript -->
 		<h:outputScript library="js" name="vendor/bootstrap.min.js" />
 		
-		<!-- Custom Theme JavaScript -->
-		<h:outputScript library="js" name="vendor/sb-admin-2.js" />
-
 	</h:body>
 </f:view>
 </html>

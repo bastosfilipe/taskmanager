@@ -41,6 +41,7 @@
     <![endif]-->
 
 	<ui:insert name="head"/>
+    	
 </h:head>
 
 <f:view contentType="text/html">
@@ -60,10 +61,10 @@
                         <h:form id="login-form">
                             <fieldset>
                                 <div class="form-group">
-                                    <h:inputText placeholder="Usuário" styleClass="form-control" autofocus="" value="#{userView.username}"/>
+                                    <h:inputText id="username" placeholder="Usuário" styleClass="form-control username-js" value="#{userView.username}" />
                                 </div>
                                 <div class="form-group">
-                                    <h:inputText placeholder="Senha" styleClass="form-control" type="password" value="#{userView.password}"/>
+                                    <h:inputText id="password" placeholder="Senha" styleClass="form-control" type="password" value="#{userView.password}"/>
                                 </div>
 
                                 <h:commandButton 
@@ -87,13 +88,13 @@
 
     <!-- Bootstrap Core JavaScript -->
     <h:outputScript library="js" name="vendor/bootstrap.min.js"/>
-    	    
-    <!-- Metis Menu Plugin JavaScript -->
-    <h:outputScript library="js" name="vendor/metisMenu.min.js"/>
-    
-    <!-- Custom Theme JavaScript -->
-    <h:outputScript library="js" name="vendor/sb-admin-2.js"/>
-
+        
+	<script>
+		$(document).ready(function() {
+		    $('.username-js')[0].focus();
+		});
+	</script>
+	
 </h:body>
 </f:view>
 </html>

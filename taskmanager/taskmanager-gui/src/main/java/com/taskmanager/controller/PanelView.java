@@ -48,7 +48,7 @@ public class PanelView implements Serializable {
 	public void taskClose() {
 
 		if (task.getSolution().isEmpty()) {
-			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnClose", new FacesMessage("Informe a solução para o problema"));
+			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnClose", new FacesMessage("Informe uma resposta para o problema"));
 		} else {
 			this.task.setOpen(false);
 			save();
@@ -58,10 +58,9 @@ public class PanelView implements Serializable {
 	public void taskSave() {
 
 		if (task.getSolution().isEmpty()) {
-			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnSave", new FacesMessage("Informe a solução para o problema"));
+			FacesContext.getCurrentInstance().addMessage("form-task-detail:btnSave", new FacesMessage("Informe uma resposta para o problema"));
 		} else {
-			this.task.setOpen(false);
-			taskSave();
+			save();
 		}
 	}
 
@@ -91,6 +90,7 @@ public class PanelView implements Serializable {
 	}
 
 	public void leaveTask() {
+		this.task.setSolution("");
 		this.task.setOwner(null);
 		save();
 	}
