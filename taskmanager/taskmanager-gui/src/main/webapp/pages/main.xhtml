@@ -144,16 +144,20 @@
 									</div>
 									
 									<h:panelGroup rendered="#{panelView.assignedToLogged()}" >
-										<div style="float: right">
-											<h:commandButton styleClass="btn btn-default" value="Largar tarefa" actionListener="#{panelView.leaveTask}" />
+										<div style="float: left">
+											<h:commandButton styleClass="btn btn-default btn-space " value="Largar tarefa" actionListener="#{panelView.leaveTask}" />
 										</div>
 									</h:panelGroup>
 									
 									<h:panelGroup rendered="#{panelView.withoutAttribution()}" >
-										<div style="float: right">
-											<h:commandButton styleClass="btn btn-primary" value="Pegar tarefa" actionListener="#{panelView.getTaskWithoutAttribution}" />
+										<div style="float: left">
+											<h:commandButton styleClass="btn btn-primary btn-space " value="Pegar tarefa" actionListener="#{panelView.getTaskWithoutAttribution}" />
 										</div>
-									</h:panelGroup>		
+									</h:panelGroup>
+									
+									<div style="float: right;">
+										<h:commandButton styleClass="btn btn-default " value="X" actionListener="#{panelView.closeWindowTaskDetail}" />
+									</div>
 									
 									<div class="col-md-12">
 									
