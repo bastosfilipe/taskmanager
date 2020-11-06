@@ -15,7 +15,7 @@
 
 	<properties>
 		
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<jsf.version>2.2.11</jsf.version>
 		<javax.servlet.version>3.0.1</javax.servlet.version>
 		<bootstrap.version>3.3.5</bootstrap.version>
